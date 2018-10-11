@@ -1,0 +1,354 @@
+@dominictarr/bench-lru results run locally
+
+| name             | set  | get1  | update | get2  | evict |
+|------------------|------|-------|--------|-------|-------|
+| simple-lru-cache | 14   | 30303 | 18553  | 41068 | 8     |
+| lru_cache        | 3595 | 20284 | 6978   | 20576 | 8237  |
+| lru-fast         | 15   | 18570 | 9921   | 27322 | 8     |
+| LruMapCache      | 1932 | 3918  | 2124   | 3226  | 1976  |
+| lru              | 15   | 3684  | 3104   | 3743  | 8     |
+| tiny-lru         | 3415 | 2659  | 4104   | 2931  | 3660  |
+| modern-lru       | 175  | 787   | 768    | 830   | 183   |
+
+Same benchmarks, with a string prefixed to the cache key.
+
+% while sleep 1; do node index.js; done
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1224 │ 1632 │  1622  │ 1653 │ 1521  │
+│    1    │ 'simple-lru-cache' │ 651  │ 1514 │  1491  │ 1427 │  510  │
+│    2    │   'LruMapCache'    │ 1371 │ 807  │  1400  │ 768  │ 1088  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.34s user 0.73s system 129% cpu 14.717 total
+14:35•repos/bench-simple-lru% while sleep 1; do node index.js; done
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1158 │ 1668 │  1596  │ 1729 │ 1571  │
+│    1    │ 'simple-lru-cache' │ 636  │ 1523 │  1514  │ 1480 │  506  │
+│    2    │   'LruMapCache'    │ 1414 │ 790  │  1399  │ 749  │ 1091  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.41s user 0.74s system 130% cpu 14.718 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1320 │ 1630 │  1594  │ 1714 │ 1534  │
+│    1    │ 'simple-lru-cache' │ 617  │ 1477 │  1506  │ 1449 │  502  │
+│    2    │   'LruMapCache'    │ 1194 │ 803  │  1398  │ 729  │ 1074  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.21s user 0.72s system 128% cpu 14.776 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1511 │ 1528 │  1524  │ 1573 │ 1505  │
+│    1    │ 'simple-lru-cache' │ 612  │ 1411 │  1455  │ 1425 │  448  │
+│    2    │   'LruMapCache'    │ 1089 │ 841  │  1331  │ 677  │  950  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  19.28s user 0.82s system 128% cpu 15.627 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1524 │ 1626 │  1390  │ 1649 │ 1518  │
+│    1    │ 'simple-lru-cache' │ 664  │ 1534 │  1498  │ 1501 │  509  │
+│    2    │   'LruMapCache'    │ 1150 │ 857  │  1349  │ 762  │  974  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.81s user 0.82s system 128% cpu 15.261 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1058 │ 1739 │  1603  │ 1719 │ 1544  │
+│    1    │ 'simple-lru-cache' │ 628  │ 1507 │  1503  │ 1465 │  527  │
+│    2    │   'LruMapCache'    │ 1187 │ 853  │  1290  │ 717  │ 1084  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.60s user 0.78s system 129% cpu 14.910 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1172 │ 1661 │  1610  │ 1694 │ 1564  │
+│    1    │ 'simple-lru-cache' │ 677  │ 1559 │  1519  │ 1551 │  459  │
+│    2    │   'LruMapCache'    │ 1231 │ 832  │  1408  │ 742  │ 1087  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.10s user 0.73s system 129% cpu 14.524 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1527 │ 1563 │  1531  │ 1627 │ 1523  │
+│    1    │ 'simple-lru-cache' │ 612  │ 1460 │  1445  │ 1451 │  496  │
+│    2    │   'LruMapCache'    │ 1253 │ 851  │  1337  │ 759  │ 1025  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  19.07s user 0.79s system 130% cpu 15.274 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1266 │ 1637 │  1581  │ 1662 │ 1480  │
+│    1    │ 'simple-lru-cache' │ 879  │ 1539 │  1557  │ 1558 │  596  │
+│    2    │   'LruMapCache'    │ 1247 │ 827  │  1399  │ 786  │ 1010  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.56s user 0.74s system 132% cpu 14.527 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1436 │ 1494 │  1608  │ 1716 │ 1494  │
+│    1    │ 'simple-lru-cache' │ 624  │ 1533 │  1467  │ 1417 │  640  │
+│    2    │   'LruMapCache'    │ 1166 │ 839  │  1349  │ 701  │ 1021  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.77s user 0.81s system 130% cpu 15.008 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1519 │ 1522 │  1608  │ 1697 │ 1486  │
+│    1    │ 'simple-lru-cache' │ 649  │ 1517 │  1336  │ 1504 │  451  │
+│    2    │   'LruMapCache'    │ 1162 │ 830  │  1359  │ 744  │ 1011  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.63s user 0.76s system 129% cpu 14.996 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1565 │ 1520 │  1637  │ 1765 │ 1537  │
+│    1    │ 'simple-lru-cache' │ 886  │ 1531 │  1590  │ 1544 │  652  │
+│    2    │   'LruMapCache'    │ 1209 │ 849  │  1403  │ 739  │ 1000  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  17.73s user 0.70s system 129% cpu 14.247 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1095 │ 1577 │  1621  │ 1721 │ 1548  │
+│    1    │ 'simple-lru-cache' │ 597  │ 1451 │  1504  │ 1518 │  578  │
+│    2    │   'LruMapCache'    │ 1212 │ 830  │  1391  │ 747  │  987  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.66s user 0.71s system 131% cpu 14.781 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+^Cnode index.js  5.98s user 0.27s system 140% cpu 4.442 total
+14:38•repos/bench-simple-lru% while sleep 1; do node index.js; done
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1409 │ 1555 │  1563  │ 1677 │ 1495  │
+│    1    │ 'simple-lru-cache' │ 630  │ 1487 │  1494  │ 1459 │  503  │
+│    2    │   'LruMapCache'    │ 1359 │ 816  │  1342  │ 734  │ 1044  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.41s user 0.75s system 128% cpu 14.944 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1471 │ 1525 │  1546  │ 1728 │ 1566  │
+│    1    │ 'simple-lru-cache' │ 650  │ 1489 │  1461  │ 1492 │  496  │
+│    2    │   'LruMapCache'    │ 1385 │ 840  │  1143  │ 741  │ 1051  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.65s user 0.79s system 129% cpu 15.046 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1525 │ 1582 │  1493  │ 1723 │ 1533  │
+│    1    │ 'simple-lru-cache' │ 648  │ 1515 │  1522  │ 1514 │  493  │
+│    2    │   'LruMapCache'    │ 1419 │ 832  │  1220  │ 718  │  976  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.48s user 0.75s system 128% cpu 15.006 total
+Benchmarking lru_cache
+^C%                                                                                                 14:39•repos/bench-simple-lru% while sleep 1; do node index.js; done
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+[ 'name', 'set', 'get1', 'update', 'get2', 'evict' ]
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1056 │ 1658 │  1519  │ 1699 │ 1571  │
+│    1    │ 'simple-lru-cache' │ 853  │ 1533 │  1578  │ 1522 │  624  │
+│    2    │   'LruMapCache'    │ 1171 │ 805  │  1423  │ 759  │ 1048  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  17.82s user 0.68s system 129% cpu 14.242 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+[ 'name', 'set', 'get1', 'update', 'get2', 'evict' ]
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1141 │ 1565 │  1602  │ 1652 │ 1524  │
+│    1    │ 'simple-lru-cache' │ 859  │ 1522 │  1500  │ 1484 │  636  │
+│    2    │   'LruMapCache'    │ 1316 │ 768  │  1306  │ 748  │  972  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.08s user 0.72s system 130% cpu 14.452 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1186 │ 1604 │  1583  │ 1653 │ 1529  │
+│    1    │ 'simple-lru-cache' │ 618  │ 1512 │  1477  │ 1422 │  505  │
+│    2    │   'LruMapCache'    │ 1234 │ 863  │  1397  │ 755  │  982  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.65s user 0.74s system 130% cpu 14.874 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1205 │ 1558 │  1625  │ 1748 │ 1543  │
+│    1    │ 'simple-lru-cache' │ 887  │ 1519 │  1607  │ 1500 │  618  │
+│    2    │   'LruMapCache'    │ 1209 │ 823  │  1410  │ 758  │ 1016  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.08s user 0.69s system 129% cpu 14.488 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1552 │ 1564 │  1606  │ 1738 │ 1523  │
+│    1    │ 'simple-lru-cache' │ 623  │ 1513 │  1456  │ 1441 │  532  │
+│    2    │   'LruMapCache'    │ 1219 │ 853  │  1371  │ 751  │  986  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.40s user 0.74s system 129% cpu 14.821 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1157 │ 1604 │  1502  │ 1661 │ 1509  │
+│    1    │ 'simple-lru-cache' │ 630  │ 1455 │  1448  │ 1414 │  460  │
+│    2    │   'LruMapCache'    │ 1222 │ 830  │  1394  │ 709  │ 1021  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  19.16s user 0.81s system 130% cpu 15.317 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1531 │ 1601 │  1492  │ 1685 │ 1525  │
+│    1    │ 'simple-lru-cache' │ 636  │ 1520 │  1482  │ 1443 │  594  │
+│    2    │   'LruMapCache'    │ 1210 │ 855  │  1372  │ 746  │ 1021  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.25s user 0.71s system 128% cpu 14.708 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1542 │ 1607 │  1572  │ 1723 │ 1509  │
+│    1    │ 'simple-lru-cache' │ 864  │ 1546 │  1551  │ 1536 │  526  │
+│    2    │   'LruMapCache'    │ 1403 │ 792  │  1225  │ 748  │ 1063  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  17.92s user 0.71s system 128% cpu 14.493 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1106 │ 1684 │  1558  │ 1689 │ 1547  │
+│    1    │ 'simple-lru-cache' │ 623  │ 1505 │  1482  │ 1414 │  492  │
+│    2    │   'LruMapCache'    │ 1219 │ 856  │  1383  │ 766  │  996  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.64s user 0.70s system 130% cpu 14.838 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1043 │ 1694 │  1551  │ 1666 │ 1539  │
+│    1    │ 'simple-lru-cache' │ 608  │ 1507 │  1504  │ 1473 │  535  │
+│    2    │   'LruMapCache'    │ 1304 │ 812  │  1375  │ 749  │ 1025  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.56s user 0.73s system 130% cpu 14.767 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1152 │ 1670 │  1631  │ 1690 │ 1565  │
+│    1    │ 'simple-lru-cache' │ 642  │ 1515 │  1522  │ 1479 │  514  │
+│    2    │   'LruMapCache'    │ 1215 │ 843  │  1418  │ 752  │ 1019  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.51s user 0.73s system 130% cpu 14.744 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1526 │ 1556 │  1521  │ 1607 │ 1529  │
+│    1    │ 'simple-lru-cache' │ 598  │ 1494 │  1500  │ 1500 │  433  │
+│    2    │   'LruMapCache'    │ 1232 │ 848  │  1396  │ 737  │ 1011  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.96s user 0.75s system 129% cpu 15.256 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1203 │ 1580 │  1644  │ 1771 │ 1561  │
+│    1    │ 'simple-lru-cache' │ 870  │ 1554 │  1581  │ 1566 │  650  │
+│    2    │   'LruMapCache'    │ 1219 │ 853  │  1418  │ 755  │ 1039  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  17.82s user 0.69s system 130% cpu 14.188 total
+Benchmarking lru_cache
+Benchmarking simple-lru-cache
+Benchmarking LruMapCache
+┌─────────┬────────────────────┬──────┬──────┬────────┬──────┬───────┐
+│ (index) │        name        │ set  │ get1 │ update │ get2 │ evict │
+├─────────┼────────────────────┼──────┼──────┼────────┼──────┼───────┤
+│    0    │    'lru_cache'     │ 1471 │ 1559 │  1608  │ 1717 │ 1536  │
+│    1    │ 'simple-lru-cache' │ 653  │ 1498 │  1496  │ 1510 │  614  │
+│    2    │   'LruMapCache'    │ 1342 │ 807  │  1376  │ 772  │ 1022  │
+└─────────┴────────────────────┴──────┴──────┴────────┴──────┴───────┘
+node index.js  18.20s user 0.72s system 129% cpu 14.646 total
