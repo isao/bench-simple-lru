@@ -2,9 +2,9 @@
 // https://medium.com/spektrakel-blog/a-simple-lru-cache-in-typescript-cba0d9807c40
 
 class LruMapCache<K, V> {
-    cache: Map<K, V>
-    limit: number
-    isEvicting: number
+    private cache: Map<K, V>
+    private limit: number
+    private isEvicting: number
 
     constructor(limit: number) {
         this.cache = new Map
@@ -14,8 +14,9 @@ class LruMapCache<K, V> {
     }
 
     get(key: K): V {
-        let val = this.cache.get(key)
-        if (val != null) {
+        let val
+        if (this.cache.has(key)) {
+            val = this.cache.get(key)
             this.cache.delete(key)
             this.cache.set(key, val)
         }
@@ -30,7 +31,7 @@ class LruMapCache<K, V> {
     }
 
     clear(): void {
-        this.cache = new Map;
+        this.cache.clear()
     }
 
     private evict(): void {
